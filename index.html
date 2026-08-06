@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Monique Freitas | Cirurgiã-Dentista</title>
+<meta name="description" content="Dra. Monique Freitas, Cirurgiã-Dentista com atendimentos em Guarujá e São Paulo. Odontologia clínica e estética, clareamento, implantes, próteses, alinhadores, Botox e preenchimento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FBF8F3;
+  --sand:#F1E7DA;
+  --nude:#DCC6AF;
+  --gold:#B08A57;
+  --gold-soft:#C9A876;
+  --ink:#241F1B;
+  --ink-soft:#4A4340;
+  --line:rgba(36,31,27,0.12);
+  --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Manrope',sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1240px;margin:0 auto;padding:0 32px;}
+.eyebrow{
+  font-size:12px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);font-weight:600;
+}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  *{scroll-behavior:auto !important;}
+}
+
+/* ===== Botão / CTA ===== */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 34px;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;
+  font-weight:600;border-radius:2px;border:1px solid transparent;
+  transition:all .35s cubic-bezier(.2,.7,.2,1);cursor:pointer;white-space:nowrap;
+}
+.btn-primary{background:var(--ink);color:var(--cream);}
+.btn-primary:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(176,138,87,.6);}
+.btn-outline{background:transparent;color:var(--ink);border:1px solid var(--ink);}
+.btn-outline:hover{background:var(--ink);color:var(--cream);}
+.btn-ghost-light{background:transparent;color:var(--cream);border:1px solid rgba(251,248,243,.55);}
+.btn-ghost-light:hover{background:var(--cream);color:var(--ink);border-color:var(--cream);}
+.btn svg{width:14px;height:14px;transition:transform .3s ease;}
+.btn:hover svg{transform:translateX(3px);}
+
+/* ===== Header ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:26px 0;transition:all .5s cubic-bezier(.2,.7,.2,1);
+}
+header .container{display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Fraunces',serif;font-size:20px;letter-spacing:0.02em;color:var(--cream);transition:color .5s ease;}
+.logo span{display:block;font-family:'Manrope',sans-serif;font-size:9px;letter-spacing:0.24em;text-transform:uppercase;font-weight:600;color:var(--gold-soft);margin-top:2px;}
+nav.main-nav{display:flex;gap:40px;}
+nav.main-nav a{
+  font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;
+  color:var(--cream);position:relative;padding-bottom:4px;transition:color .5s ease;
+}
+nav.main-nav a::after{
+  content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);
+  transition:width .35s ease;
+}
+nav.main-nav a:hover::after{width:100%;}
+.header-cta{display:flex;align-items:center;gap:22px;}
+.header-cta .btn{padding:13px 26px;}
+header.scrolled{
+  background:rgba(251,248,243,.92);backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 var(--line);padding:16px 0;
+}
+header.scrolled .logo{color:var(--ink);}
+header.scrolled nav.main-nav a{color:var(--ink-soft);}
+header.scrolled .btn-ghost-light{color:var(--ink);border-color:var(--ink);}
+header.scrolled .btn-ghost-light:hover{background:var(--ink);color:var(--cream);}
+
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1200;background:none;border:none;padding:6px;}
+.burger span{width:26px;height:1.5px;background:var(--cream);transition:all .35s ease;}
+header.scrolled .burger span{background:var(--ink);}
+.burger.active span{background:var(--ink) !important;}
+.burger.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.burger.active span:nth-child(2){opacity:0;}
+.burger.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+.mobile-menu{
+  position:fixed;inset:0;background:var(--cream);z-index:1100;
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  padding:0 40px;gap:26px;transform:translateY(-100%);transition:transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.mobile-menu.open{transform:translateY(0);}
+.mobile-menu a{font-family:'Fraunces',serif;font-size:32px;color:var(--ink);}
+.mobile-menu .btn{margin-top:18px;}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  background:var(--ink);overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('perfil1.jpg');
+  background-size:cover;background-position:center 20%;
+  filter:grayscale(30%) brightness(.62);
+  transform:scale(1.08);
+}
+.hero-gradient{
+  position:absolute;inset:0;
+  background:linear-gradient(100deg, rgba(26,23,20,.94) 8%, rgba(26,23,20,.72) 42%, rgba(26,23,20,.22) 75%);
+}
+.hero-inner{position:relative;z-index:2;width:100%;padding-top:110px;}
+.hero-tag{
+  display:flex;align-items:center;gap:12px;margin-bottom:28px;
+}
+.hero-tag .line{width:36px;height:1px;background:var(--gold-soft);}
+.hero-tag span{color:var(--gold-soft);font-size:12px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;}
+.hero h1{
+  font-size:clamp(38px,6vw,76px);line-height:1.05;color:var(--cream);max-width:820px;font-weight:400;
+}
+.hero h1 em{font-style:italic;color:var(--gold-soft);font-weight:400;}
+.hero p.sub{
+  margin-top:26px;font-size:18px;line-height:1.65;color:rgba(251,248,243,.78);max-width:480px;font-weight:300;
+}
+.hero-ctas{display:flex;gap:18px;margin-top:44px;flex-wrap:wrap;}
+.hero-meta{
+  margin-top:80px;display:flex;gap:50px;flex-wrap:wrap;
+  border-top:1px solid rgba(251,248,243,.18);padding-top:26px;max-width:640px;
+}
+.hero-meta div{display:flex;flex-direction:column;gap:6px;}
+.hero-meta .k{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(251,248,243,.5);}
+.hero-meta .v{font-family:'Fraunces',serif;font-size:17px;color:var(--cream);}
+.scroll-cue{
+  position:absolute;right:44px;bottom:40px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:14px;
+}
+.scroll-cue .track{width:1px;height:60px;background:rgba(251,248,243,.3);position:relative;overflow:hidden;}
+.scroll-cue .track::after{content:'';position:absolute;top:0;left:0;width:100%;height:22px;background:var(--gold-soft);animation:scrollDown 2.2s infinite ease-in-out;}
+@keyframes scrollDown{0%{transform:translateY(-100%);}100%{transform:translateY(160%);}}
+.scroll-cue span{writing-mode:vertical-rl;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(251,248,243,.55);}
+
+/* ===== Section basics ===== */
+section{position:relative;}
+.section-pad{padding:130px 0;}
+.section-head{max-width:640px;margin-bottom:64px;}
+.section-head h2{font-size:clamp(30px,4vw,48px);line-height:1.15;margin-top:16px;font-weight:400;}
+.section-head p{margin-top:20px;font-size:17px;line-height:1.7;color:var(--ink-soft);font-weight:300;}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+
+/* ===== Authority block ===== */
+.authority{background:var(--white);}
+.authority-grid{display:grid;grid-template-columns:0.95fr 1.05fr;gap:80px;align-items:center;}
+.authority-text h2{font-size:clamp(28px,3.6vw,42px);line-height:1.2;margin-top:16px;}
+.authority-text p{margin-top:24px;font-size:17px;line-height:1.8;color:var(--ink-soft);font-weight:300;max-width:480px;}
+.signature-block{margin-top:40px;display:flex;align-items:center;gap:18px;}
+.signature-block svg{width:150px;height:52px;color:var(--gold);}
+.signature-block .who{border-left:1px solid var(--line);padding-left:18px;}
+.signature-block .who strong{display:block;font-family:'Fraunces',serif;font-size:16px;}
+.signature-block .who small{font-size:12px;color:var(--ink-soft);letter-spacing:0.04em;}
+.authority-visual{position:relative;}
+.authority-visual .frame{
+  position:relative;border-radius:2px;overflow:hidden;
+  aspect-ratio:4/5;
+}
+.authority-visual img{width:100%;height:100%;object-fit:cover;object-position:center 18%;}
+.authority-visual .frame-deco{
+  position:absolute;top:-22px;left:-22px;right:22px;bottom:22px;
+  border:1px solid var(--gold-soft);z-index:-1;
+}
+
+/* ===== Especialidades ===== */
+.especialidades{background:var(--sand);}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.spec-card{
+  background:var(--sand);padding:48px 40px;transition:background .4s ease, transform .4s ease;
+  display:flex;flex-direction:column;gap:22px;min-height:270px;position:relative;overflow:hidden;
+}
+.spec-card:hover{background:var(--cream);transform:translateY(-4px);}
+.spec-card .num-icon{width:44px;height:44px;color:var(--gold);}
+.spec-card h3{font-size:21px;font-weight:500;}
+.spec-card p{font-size:14.5px;line-height:1.65;color:var(--ink-soft);font-weight:300;flex:1;}
+.spec-card .arrow{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--ink);}
+.spec-card .arrow svg{width:14px;height:14px;transition:transform .3s ease;}
+.spec-card:hover .arrow svg{transform:translateX(6px);}
+
+/* ===== Destaque estética ===== */
+.destaque{
+  min-height:88vh;display:flex;align-items:flex-end;position:relative;
+  background:var(--ink);
+}
+.destaque-bg{
+  position:absolute;inset:0;background-image:url('perfil2.jpg');
+  background-size:cover;background-position:center 15%;filter:grayscale(20%) brightness(.5);
+}
+.destaque::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(0deg, rgba(26,23,20,.92) 10%, rgba(26,23,20,.15) 60%);
+}
+.destaque-content{position:relative;z-index:2;padding-bottom:100px;max-width:640px;}
+.destaque-content h2{font-size:clamp(30px,4.6vw,54px);color:var(--cream);line-height:1.15;}
+.destaque-content p{margin-top:22px;font-size:17px;line-height:1.75;color:rgba(251,248,243,.75);font-weight:300;max-width:480px;}
+.destaque-content .btn{margin-top:34px;}
+
+/* ===== Sobre ===== */
+.sobre{background:var(--white);}
+.sobre-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:90px;align-items:center;}
+.sobre-photo{position:relative;aspect-ratio:3/4;overflow:hidden;}
+.sobre-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+.sobre-text h2{font-size:clamp(28px,3.6vw,44px);margin-top:16px;line-height:1.2;}
+.sobre-text p.lead{margin-top:22px;font-size:17.5px;line-height:1.8;color:var(--ink-soft);font-weight:300;max-width:520px;}
+.highlight-list{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px 30px;}
+.highlight-item{display:flex;gap:14px;align-items:flex-start;}
+.highlight-item svg{width:20px;height:20px;color:var(--gold);flex-shrink:0;margin-top:2px;}
+.highlight-item span{font-size:14.5px;font-weight:500;line-height:1.5;}
+
+/* ===== Diferenciais ===== */
+.diferenciais{background:var(--ink);}
+.diferenciais .section-head h2{color:var(--cream);}
+.diferenciais .section-head p{color:rgba(251,248,243,.65);}
+.dif-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(251,248,243,.12);}
+.dif-card{background:var(--ink);padding:44px 30px;color:var(--cream);}
+.dif-card svg{width:34px;height:34px;color:var(--gold-soft);margin-bottom:26px;}
+.dif-card h3{font-size:17px;font-weight:500;margin-bottom:12px;}
+.dif-card p{font-size:14px;line-height:1.65;color:rgba(251,248,243,.62);font-weight:300;}
+
+/* ===== Experiência (timeline) ===== */
+.experiencia{background:var(--sand);}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;margin-top:20px;}
+.timeline::before{
+  content:'';position:absolute;top:26px;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold-soft) 15%, var(--gold-soft) 85%, transparent);
+}
+.tl-step{padding:0 30px;position:relative;}
+.tl-step .tl-num{
+  width:54px;height:54px;border-radius:50%;background:var(--cream);border:1px solid var(--gold-soft);
+  display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:16px;color:var(--gold);
+  margin-bottom:30px;position:relative;z-index:2;
+}
+.tl-step h3{font-size:20px;font-weight:500;margin-bottom:12px;}
+.tl-step p{font-size:14.5px;line-height:1.7;color:var(--ink-soft);font-weight:300;max-width:280px;}
+
+/* ===== CTA intermediário ===== */
+.cta-mid{
+  background:linear-gradient(120deg, #2a241f, #1a1714);position:relative;overflow:hidden;
+  padding:110px 0;text-align:center;
+}
+.cta-mid::before{
+  content:'';position:absolute;width:600px;height:600px;border-radius:50%;
+  border:1px solid rgba(201,168,118,.18);top:-300px;right:-200px;
+}
+.cta-mid .content{position:relative;z-index:2;max-width:620px;margin:0 auto;}
+.cta-mid h2{color:var(--cream);font-size:clamp(28px,4vw,44px);line-height:1.2;}
+.cta-mid p{margin-top:18px;color:rgba(251,248,243,.68);font-size:16.5px;font-weight:300;}
+.cta-mid .btn{margin-top:36px;}
+
+/* ===== Localização ===== */
+.localizacao{background:var(--white);}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+.loc-card{
+  border:1px solid var(--line);padding:50px 42px;position:relative;overflow:hidden;transition:border-color .35s ease;
+}
+.loc-card:hover{border-color:var(--gold-soft);}
+.loc-card .eyebrow{margin-bottom:18px;}
+.loc-card h3{font-size:26px;margin-bottom:14px;}
+.loc-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.7;font-weight:300;margin-bottom:8px;}
+.loc-card .placeholder{
+  font-size:13px;color:var(--nude);font-style:italic;border-top:1px dashed var(--line);
+  margin-top:20px;padding-top:16px;
+}
+.loc-card .btn{margin-top:26px;}
+.loc-card svg.pin{width:30px;height:30px;color:var(--gold);margin-bottom:22px;}
+
+/* ===== Instagram ===== */
+.instagram{background:var(--sand);}
+.insta-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:50px;}
+.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;}
+.insta-item{aspect-ratio:1/1;overflow:hidden;position:relative;cursor:pointer;}
+.insta-item img{width:100%;height:100%;object-fit:cover;filter:sepia(18%) saturate(85%) brightness(.92) contrast(1.02);transition:transform .6s cubic-bezier(.2,.7,.2,1), filter .4s ease;}
+.insta-item:hover img{transform:scale(1.08);filter:sepia(0%) saturate(100%) brightness(1) contrast(1);}
+.insta-item::after{content:'';position:absolute;inset:0;background:rgba(26,23,20,0.08);}
+
+/* ===== FAQ ===== */
+.faq{background:var(--white);}
+.faq-list{max-width:820px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{
+  width:100%;text-align:left;background:none;border:none;padding:30px 0;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;cursor:pointer;
+  font-family:'Fraunces',serif;font-size:18px;color:var(--ink);
+}
+.faq-q .plus{width:22px;height:22px;position:relative;flex-shrink:0;}
+.faq-q .plus::before,.faq-q .plus::after{content:'';position:absolute;background:var(--gold);transition:transform .35s ease;}
+.faq-q .plus::before{top:50%;left:0;width:100%;height:1px;transform:translateY(-50%);}
+.faq-q .plus::after{left:50%;top:0;height:100%;width:1px;transform:translateX(-50%);}
+.faq-item.open .plus::after{transform:translateX(-50%) rotate(90deg);opacity:0;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.2,.7,.2,1);}
+.faq-a p{padding-bottom:28px;font-size:15px;line-height:1.75;color:var(--ink-soft);font-weight:300;max-width:680px;}
+
+/* ===== CTA final ===== */
+.cta-final{
+  min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  position:relative;background:var(--ink);overflow:hidden;
+}
+.cta-final-bg{position:absolute;inset:0;background-image:url('perfil.jpg');background-size:cover;background-position:center 25%;filter:grayscale(40%) brightness(.35);}
+.cta-final .content{position:relative;z-index:2;max-width:680px;padding:0 30px;}
+.cta-final h2{color:var(--cream);font-size:clamp(32px,5vw,58px);line-height:1.15;}
+.cta-final p{margin-top:20px;color:rgba(251,248,243,.72);font-size:17px;font-weight:300;}
+.cta-final .btn{margin-top:38px;}
+.cta-final .loc-tag{margin-top:30px;color:var(--gold-soft);font-size:12px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;}
+
+/* ===== Footer ===== */
+footer{background:#1A1714;color:rgba(251,248,243,.7);padding:80px 0 30px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px;padding-bottom:50px;border-bottom:1px solid rgba(251,248,243,.1);}
+.footer-brand .logo{color:var(--cream);margin-bottom:14px;}
+.footer-brand p{font-size:14px;line-height:1.7;max-width:280px;font-weight:300;}
+.footer-col h4{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:22px;font-weight:600;}
+.footer-col a{display:block;font-size:14.5px;margin-bottom:14px;color:rgba(251,248,243,.68);transition:color .3s ease;}
+.footer-col a:hover{color:var(--gold-soft);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;font-size:12.5px;color:rgba(251,248,243,.42);flex-wrap:wrap;gap:12px;}
+
+/* ===== WhatsApp float ===== */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:900;
+  width:60px;height:60px;border-radius:50%;background:#1A1714;border:1px solid var(--gold-soft);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 14px 34px -10px rgba(0,0,0,.5);
+  transition:transform .35s ease;
+}
+.wa-float:hover{transform:scale(1.08);}
+.wa-float svg{width:26px;height:26px;color:var(--gold-soft);}
+
+/* ===== Responsive ===== */
+@media (max-width:1024px){
+  nav.main-nav,.header-cta{display:none;}
+  .burger{display:flex;}
+  .authority-grid,.sobre-grid{grid-template-columns:1fr;gap:50px;}
+  .authority-visual{order:-1;max-width:420px;}
+  .spec-grid{grid-template-columns:repeat(2,1fr);}
+  .dif-grid{grid-template-columns:repeat(2,1fr);}
+  .timeline{grid-template-columns:1fr;gap:50px;}
+  .timeline::before{display:none;}
+  .loc-grid{grid-template-columns:1fr;}
+  .insta-grid{grid-template-columns:repeat(3,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
+}
+@media (max-width:640px){
+  .container{padding:0 22px;}
+  .section-pad{padding:90px 0;}
+  .hero-meta{gap:30px;}
+  .spec-grid{grid-template-columns:1fr;}
+  .dif-grid{grid-template-columns:1fr;}
+  .highlight-list{grid-template-columns:1fr;}
+  .insta-grid{grid-template-columns:repeat(3,1fr);}
+  .footer-grid{grid-template-columns:1fr;}
+  .scroll-cue{display:none;}
+  .hero-ctas{flex-direction:column;align-items:stretch;}
+  .hero-ctas .btn{justify-content:center;}
+  .destaque-content{padding-bottom:70px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="siteHeader">
+  <div class="container">
+    <a href="#top" class="logo">Dra. Monique Freitas<span>Cirurgiã-Dentista</span></a>
+    <nav class="main-nav">
+      <a href="#top">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#" class="btn btn-primary wa-link" target="_blank" rel="noopener">
+        Agendar Consulta
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#top">Início</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#especialidades">Especialidades</a>
+  <a href="#diferenciais">Diferenciais</a>
+  <a href="#localizacao">Localização</a>
+  <a href="#contato">Contato</a>
+  <a href="#" class="btn btn-outline wa-link" target="_blank" rel="noopener">Agendar Consulta</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
+  <div class="container hero-inner">
+    <div class="hero-tag reveal in">
+      <span class="line"></span>
+      <span>Guarujá &nbsp;•&nbsp; São Paulo</span>
+    </div>
+    <h1 class="reveal in">Seu sorriso merece<br> um cuidado <em>extraordinário.</em></h1>
+    <p class="sub reveal in">Odontologia estética e clínica com precisão, naturalidade e atendimento personalizado — pensado para cada detalhe do seu sorriso.</p>
+    <div class="hero-ctas reveal in">
+      <a href="#" class="btn btn-primary wa-link" target="_blank" rel="noopener">
+        Agendar Minha Consulta
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#especialidades" class="btn btn-ghost-light">Conhecer Procedimentos</a>
+    </div>
+    <div class="hero-meta reveal in">
+      <div><span class="k">Profissional</span><span class="v">Dra. Monique Freitas</span></div>
+      <div><span class="k">Atuação</span><span class="v">Cirurgiã-Dentista</span></div>
+      <div><span class="k">Instagram</span><span class="v">@dra.moniquef</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Role a página</span><div class="track"></div></div>
+</section>
+
+<!-- ===== BLOCO DE AUTORIDADE ===== -->
+<section class="authority section-pad">
+  <div class="container authority-grid">
+    <div class="authority-text reveal">
+      <span class="eyebrow">Nossa filosofia</span>
+      <h2>Cuidado que começa<br>pela confiança.</h2>
+      <p>Cada paciente possui necessidades, características e objetivos únicos. Por isso, cada atendimento é pensado de forma individualizada, buscando resultados naturais, segurança e excelência em cada detalhe.</p>
+      <div class="signature-block">
+        <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 42C20 10 30 46 42 30C50 18 55 40 66 34C76 29 80 12 92 20C102 27 100 44 112 38C122 33 122 16 134 22C144 27 148 40 160 34C170 29 172 18 184 24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <div class="who">
+          <strong>Dra. Monique Freitas</strong>
+          <small>Cirurgiã-Dentista</small>
+        </div>
+      </div>
+    </div>
+    <div class="authority-visual reveal">
+      <div class="frame-deco"></div>
+      <div class="frame"><img src="perfil2.jpg" alt="Dra. Monique Freitas, cirurgiã-dentista" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ESPECIALIDADES ===== -->
+<section class="especialidades section-pad" id="especialidades">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Especialidades</span>
+      <h2>Tratamentos pensados para você</h2>
+      <p>Soluções odontológicas que unem estética, saúde e tecnologia para transformar seu sorriso com naturalidade.</p>
+    </div>
+  </div>
+  <div class="container" style="padding:0;">
+  <div class="spec-grid reveal">
+    <div class="spec-card">
+      <svg class="num-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M24 6c-8 0-14 5-14 13 0 9 4 12 5 20 .6 4.5 3 6 4.5 6 2 0 2.5-3 2.5-8 0-3 1-4.5 2-4.5s2 1.5 2 4.5c0 5 .5 8 2.5 8 1.5 0 3.9-1.5 4.5-6 1-8 5-11 5-20 0-8-6-13-14-13Z"/></svg>
+      <h3>Clínica Geral</h3>
+      <p>Prevenção, saúde bucal e acompanhamento contínuo para manter seu sorriso saudável em todas as fases da vida.</p>
+      <span class="arrow">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+    <div class="spec-card">
+      <svg class="num-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l7 5"/></svg>
+      <h3>Clareamento Dental</h3>
+      <p>Técnicas seguras para um sorriso mais iluminado, harmônico e com resultado natural.</p>
+      <span class="arrow">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+    <div class="spec-card">
+      <svg class="num-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M24 6v14M24 20l-6 22h4l2-10 2 10h4l-6-22Z"/><circle cx="24" cy="6" r="3"/></svg>
+      <h3>Implantes</h3>
+      <p>Reabilitação oral com foco na recuperação da função e da estética, com segurança e planejamento.</p>
+      <span class="arrow">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+    <div class="spec-card">
+      <svg class="num-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 30c0-10 6-18 14-18s14 8 14 18"/><path d="M10 30h28"/><path d="M14 30v4M20 30v4M28 30v4M34 30v4"/></svg>
+      <h3>Próteses</h3>
+      <p>Conforto, estética e recuperação do sorriso com soluções personalizadas para cada caso.</p>
+      <span class="arrow">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+    <div class="spec-card">
+      <svg class="num-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="8" y="16" width="32" height="16" rx="8"/><path d="M16 20v8M24 18v12M32 20v8"/></svg>
+      <h3>Alinhadores</h3>
+      <p>Alinhamento dental de maneira discreta, moderna e adaptada à sua rotina.</p>
+      <span class="arrow">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+    <div class="spec-card">
+      <svg class="num-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M24 8v6M24 34v6M8 24h6M34 24h6M13 13l4 4M31 31l4 4M13 35l4-4M31 17l4-4"/><circle cx="24" cy="24" r="7"/></svg>
+      <h3>Botox &amp; Preenchimento</h3>
+      <p>Harmonização facial com abordagem natural, personalizada e equilibrada.</p>
+      <span class="arrow">Saiba mais <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ===== DESTAQUE ESTÉTICA ===== -->
+<section class="destaque">
+  <div class="destaque-bg"></div>
+  <div class="container destaque-content reveal">
+    <span class="eyebrow" style="color:var(--gold-soft)">Estética odontológica</span>
+    <h2>Um sorriso bonito<br>começa com naturalidade.</h2>
+    <p>A estética odontológica vai além da aparência. É sobre equilíbrio, proporção e confiança para que você se sinta bem com o seu sorriso.</p>
+    <a href="#" class="btn btn-primary wa-link" target="_blank" rel="noopener">
+      Quero Transformar Meu Sorriso
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ===== SOBRE ===== -->
+<section class="sobre section-pad" id="sobre">
+  <div class="container sobre-grid">
+    <div class="sobre-photo reveal">
+      <img src="perfil.jpg" alt="Dra. Monique Freitas em consultório odontológico" loading="lazy">
+    </div>
+    <div class="sobre-text reveal">
+      <span class="eyebrow">Sobre a profissional</span>
+      <h2>Conheça a Dra.<br>Monique Freitas</h2>
+      <p class="lead">Cirurgiã-Dentista dedicada a oferecer uma odontologia moderna, personalizada e cuidadosa, unindo conhecimento técnico, tecnologia e atenção aos detalhes em cada atendimento.</p>
+      <div class="highlight-list">
+        <div class="highlight-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-4-3-8-6.5-8-11a8 8 0 0 1 16 0c0 4.5-4 8-8 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span>Atendimento personalizado</span>
+        </div>
+        <div class="highlight-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.5-9-9c-1.5-3.5 1-7 4.5-7 2 0 3.5 1 4.5 2.5C13 5 14.5 4 16.5 4c3.5 0 6 3.5 4.5 7-2 4.5-9 9-9 9Z"/></svg>
+          <span>Abordagem humanizada</span>
+        </div>
+        <div class="highlight-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18c3-6 5-9 8-9s5 3 8 9"/><circle cx="12" cy="7" r="3"/></svg>
+          <span>Foco em resultados naturais</span>
+        </div>
+        <div class="highlight-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3.4"/></svg>
+          <span>Tecnologia e precisão</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIFERENCIAIS ===== -->
+<section class="diferenciais section-pad" id="diferenciais">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:var(--gold-soft)">Diferenciais</span>
+      <h2>Por que escolher<br>a Dra. Monique?</h2>
+    </div>
+  </div>
+  <div class="dif-grid reveal">
+    <div class="dif-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      <h3>Atendimento personalizado</h3>
+      <p>Cada tratamento é pensado de acordo com as necessidades individuais de cada paciente.</p>
+    </div>
+    <div class="dif-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 18c3-7 6-11 8-11s5 4 8 11"/><path d="M8 18h8"/></svg>
+      <h3>Estética natural</h3>
+      <p>Resultados que valorizam a harmonia e respeitam as características de cada pessoa.</p>
+    </div>
+    <div class="dif-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <h3>Precisão e cuidado</h3>
+      <p>Atenção aos detalhes em todas as etapas do tratamento.</p>
+    </div>
+    <div class="dif-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z"/><path d="M3 12l9 4.5L21 12M3 16.5 12 21l9-4.5"/></svg>
+      <h3>Experiência premium</h3>
+      <p>Um atendimento pensado para proporcionar conforto, segurança e tranquilidade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIÊNCIA DO PACIENTE ===== -->
+<section class="experiencia section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Jornada do paciente</span>
+      <h2>Do primeiro contato ao<br>seu novo sorriso.</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-step">
+        <div class="tl-num">01</div>
+        <h3>Avaliação</h3>
+        <p>Entendemos suas necessidades, desejos e objetivos com atenção e escuta cuidadosa.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">02</div>
+        <h3>Planejamento</h3>
+        <p>Criamos uma abordagem personalizada, alinhada ao seu caso e às suas expectativas.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">03</div>
+        <h3>Transformação</h3>
+        <p>Executamos o tratamento com cuidado, precisão e acompanhamento em cada etapa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA INTERMEDIÁRIO ===== -->
+<section class="cta-mid">
+  <div class="container content reveal">
+    <span class="eyebrow" style="color:var(--gold-soft)">Agende sua avaliação</span>
+    <h2 style="margin-top:14px;">Pronto para cuidar<br>do seu sorriso?</h2>
+    <p>Agende uma avaliação e descubra quais tratamentos fazem sentido para você.</p>
+    <a href="#" class="btn btn-primary wa-link" target="_blank" rel="noopener">
+      Agendar Consulta pelo WhatsApp
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ===== LOCALIZAÇÃO ===== -->
+<section class="localizacao section-pad" id="localizacao">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Onde atendemos</span>
+      <h2>Atendimento em<br>Guarujá e São Paulo</h2>
+    </div>
+    <div class="loc-grid reveal">
+      <div class="loc-card">
+        <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg>
+        <span class="eyebrow">Litoral</span>
+        <h3>Guarujá</h3>
+        <p>Atendimento odontológico.</p>
+        <p class="placeholder">Endereço e horários em breve.</p>
+        <a href="#" class="btn btn-outline wa-link" target="_blank" rel="noopener">Como Chegar</a>
+      </div>
+      <div class="loc-card">
+        <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s7-7.2 7-12a7 7 0 0 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg>
+        <span class="eyebrow">Capital</span>
+        <h3>São Paulo</h3>
+        <p>Atendimento odontológico.</p>
+        <p class="placeholder">Endereço e horários em breve.</p>
+        <a href="#" class="btn btn-outline wa-link" target="_blank" rel="noopener">Como Chegar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSTAGRAM ===== -->
+<section class="instagram section-pad">
+  <div class="container">
+    <div class="insta-head reveal">
+      <div>
+        <span class="eyebrow">Redes sociais</span>
+        <h2 style="margin-top:14px;">Acompanhe a Dra. Monique</h2>
+        <p style="margin-top:14px;color:var(--ink-soft);font-weight:300;max-width:480px;">Conteúdos sobre odontologia, estética, cuidados com o sorriso e rotina profissional.</p>
+      </div>
+      <a href="https://www.instagram.com/dra.moniquef/" target="_blank" rel="noopener" class="btn btn-outline">
+        Seguir @dra.moniquef
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="insta-grid reveal">
+      <div class="insta-item"><img src="perfil1.jpg" loading="lazy" alt="Dra. Monique Freitas"></div>
+      <div class="insta-item"><img src="3.jpg" loading="lazy" alt="Procedimento odontológico"></div>
+      <div class="insta-item"><img src="perfil2.jpg" loading="lazy" alt="Dra. Monique Freitas"></div>
+      <div class="insta-item"><img src="4.jpg" loading="lazy" alt="Procedimento odontológico"></div>
+      <div class="insta-item"><img src="perfil.jpg" loading="lazy" alt="Dra. Monique Freitas"></div>
+      <div class="insta-item"><img src="5.jpg" loading="lazy" alt="Procedimento odontológico"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq section-pad" id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">Como faço para agendar uma consulta?<span class="plus"></span></button>
+        <div class="faq-a"><p>Você pode agendar sua avaliação diretamente pelo WhatsApp, através dos botões disponíveis no site.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Onde a Dra. Monique atende?<span class="plus"></span></button>
+        <div class="faq-a"><p>Os atendimentos acontecem em Guarujá e em São Paulo. Os endereços completos serão disponibilizados em breve.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Quais procedimentos são realizados?<span class="plus"></span></button>
+        <div class="faq-a"><p>São oferecidos atendimentos de Clínica Geral, Clareamento Dental, Implantes, Próteses, Alinhadores e Botox &amp; Preenchimento.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">A Dra. Monique realiza avaliação antes do tratamento?<span class="plus"></span></button>
+        <div class="faq-a"><p>Sim. Cada tratamento é precedido por uma avaliação individual, para entender as necessidades e objetivos do paciente.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Como funciona o atendimento para implantes?<span class="plus"></span></button>
+        <div class="faq-a"><p>O caso é avaliado individualmente e um planejamento é definido de acordo com as necessidades específicas do paciente. Entre em contato pelo WhatsApp para mais informações.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Quais opções existem para clareamento dental?<span class="plus"></span></button>
+        <div class="faq-a"><p>As opções de clareamento são definidas após avaliação, considerando o quadro clínico e os objetivos de cada paciente. Fale conosco para saber mais.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="cta-final" id="contato">
+  <div class="cta-final-bg"></div>
+  <div class="content reveal">
+    <span class="eyebrow" style="color:var(--gold-soft)">Vamos começar</span>
+    <h2 style="margin-top:16px;">Seu próximo sorriso<br>pode começar aqui.</h2>
+    <p>Agende seu atendimento com a Dra. Monique Freitas.</p>
+    <a href="#" class="btn btn-primary wa-link" target="_blank" rel="noopener">
+      Agendar Minha Consulta
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <div class="loc-tag">Guarujá &nbsp;•&nbsp; São Paulo</div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo serif">Dra. Monique Freitas</div>
+        <p>Cirurgiã-Dentista com atendimentos em Guarujá e São Paulo. Odontologia clínica e estética com cuidado, precisão e naturalidade.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="#top">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Redes sociais</h4>
+        <a href="https://www.instagram.com/dra.moniquef/" target="_blank" rel="noopener">Instagram: @dra.moniquef</a>
+        <a href="#" class="wa-link" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h4>Informações</h4>
+        <a href="#" style="pointer-events:none;">CRO-SP 140697</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Dra. Monique Freitas — Todos os direitos reservados.</span>
+      <span>Guarujá • São Paulo</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="#" class="wa-float wa-link" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.02 2.67C8.6 2.67 2.58 8.68 2.58 16.1c0 2.55.71 4.94 1.94 6.98L2.67 29.33l6.44-1.8a13.4 13.4 0 0 0 6.91 1.9h.01c7.43 0 13.44-6.02 13.44-13.44 0-3.59-1.4-6.96-3.94-9.49a13.34 13.34 0 0 0-9.5-3.83Zm0 24.6h-.01a11.13 11.13 0 0 1-5.68-1.56l-.41-.24-4.05 1.13 1.08-3.96-.27-.41a11.15 11.15 0 0 1-1.71-5.94c0-6.15 5.01-11.16 11.17-11.16 2.98 0 5.78 1.16 7.89 3.27a11.05 11.05 0 0 1 3.27 7.9c0 6.16-5.01 11.17-11.28 11.17Zm6.13-8.37c-.34-.17-1.98-.98-2.29-1.09-.31-.11-.53-.17-.75.17-.22.34-.86 1.09-1.05 1.31-.19.22-.39.25-.72.08-.34-.17-1.42-.52-2.7-1.66-1-.89-1.67-1.99-1.87-2.33-.19-.34-.02-.52.15-.69.15-.15.34-.39.51-.59.17-.19.22-.34.34-.56.11-.22.06-.42-.03-.59-.08-.17-.75-1.8-1.03-2.47-.27-.65-.55-.56-.75-.57l-.64-.01c-.22 0-.59.08-.9.42-.31.34-1.18 1.15-1.18 2.81 0 1.66 1.21 3.26 1.38 3.48.17.22 2.38 3.63 5.76 5.09.8.35 1.43.55 1.92.71.81.26 1.54.22 2.12.13.65-.1 1.98-.81 2.26-1.59.28-.78.28-1.44.19-1.59-.08-.14-.31-.22-.65-.39Z"/></svg>
+</a>
+
+<script>
+/* ================= CONFIGURAÇÃO ================= */
+// Substitua pelo número real com DDI + DDD (apenas números), ex: 5511999999999
+const WHATSAPP_NUMBER = "5543991199393";
+const WHATSAPP_MESSAGE = "Olá, Dra. Monique! Vim pelo site e gostaria de saber mais sobre os atendimentos e agendar uma avaliação.";
+
+document.querySelectorAll('.wa-link').forEach(link=>{
+  link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+});
+
+/* Header scroll state */
+const header = document.getElementById('siteHeader');
+const onScroll = () => {
+  if(window.scrollY > 60){ header.classList.add('scrolled'); }
+  else{ header.classList.remove('scrolled'); }
+};
+window.addEventListener('scroll', onScroll);
+onScroll();
+
+/* Mobile menu */
+const burger = document.getElementById('burgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', ()=>{
+  burger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click', ()=>{
+    burger.classList.remove('active');
+    mobileMenu.classList.remove('open');
+  });
+});
+
+/* Scroll reveal */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+
+/* FAQ accordion */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', ()=>{
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(other=>{
+      other.classList.remove('open');
+      other.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+/* Footer year */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
